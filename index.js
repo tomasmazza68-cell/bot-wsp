@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-// 1. TUS LLAVES (Pegá acá tus datos entre las comillas)
+// 1. TUS LLAVES
 const TOKEN_WEBHOOK = 'mi_codigo_secreto_123';
-const TOKEN_META = 'EAAdEYVIY3V8BShjoypSK2EDj7uAiG5ZAx0T7Mg7lh2s6xzF1ZBXti6ml8fPhqmfniASWLDdlZACq8uc1Fyy0c2pKhB2vqsSlzflJcFXYP6JZBlqitnZAEioOPqpwFupe2dRl7DNSZCdl68rBdqSLwZCxx2Wa47oDYe68eaZBILkYfiVh5ilCkmixkQ69dGdtjGxqEZBfT08kpogeZAZAxss4AVsm6bFVbAvCv0TILA5owBFwcbwJQC1yMCAWQbzaYYRnuZBZA1KeB4BHQ4vogv0plgvsQ'; 
+const TOKEN_META = 'ACA_PEGA_TU_TOKEN_LARGUISIMO'; 
 const ID_NUMERO = '1329816126879163'; 
 
 // 2. LA PUERTA (Para que Meta se conecte)
@@ -20,25 +20,21 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
   const body = req.body;
   
-  // Verificamos si es un mensaje de WhatsApp
   if (body.object === 'whatsapp_business_account') {
     const entry = body.entry?.[0];
     const changes = entry?.changes?.[0];
     const value = changes?.value;
     const message = value?.messages?.[0];
 
-    // Si hay un mensaje, leemos quién lo mandó y qué dijo
     if (message) {
       const numeroCliente = message.from; 
       const textoRecibido = message.text?.body; 
 
       console.log(`Recibimos: "${textoRecibido}" del número ${numeroCliente}`);
 
-      // Le pedimos al bot que mande una respuesta
       enviarMensaje(numeroCliente, "¡Hola! Soy tu primer bot. Todavía estoy aprendiendo, pero ya sé responder de forma automática. 🤖");
     }
   }
-  // Siempre hay que avisarle a Meta que recibimos el mensaje
   res.sendStatus(200); 
 });
 
