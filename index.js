@@ -4,7 +4,7 @@ app.use(express.json());
 
 // 1. TUS LLAVES
 const TOKEN_WEBHOOK = 'mi_codigo_secreto_123';
-const TOKEN_META = 'ACA_PEGA_TU_TOKEN_LARGUISIMO'; 
+const TOKEN_META = 'EAAdEYVIY3V8BShjoypSK2EDj7uAiG5ZAx0T7Mg7lh2s6xzF1ZBXti6ml8fPhqmfniASWLDdlZACq8uc1Fyy0c2pKhB2vqsSlzflJcFXYP6JZBlqitnZAEioOPqpwFupe2dRl7DNSZCdl68rBdqSLwZCxx2Wa47oDYe68eaZBILkYfiVh5ilCkmixkQ69dGdtjGxqEZBfT08kpogeZAZAxss4AVsm6bFVbAvCv0TILA5owBFwcbwJQC1yMCAWQbzaYYRnuZBZA1KeB4BHQ4vogv0plgvsQ'; 
 const ID_NUMERO = '1329816126879163'; 
 
 // 2. LA PUERTA (Para que Meta se conecte)
